@@ -18,6 +18,7 @@ public class magazinDb {
         dataBaseConnection = null;
         try{
 
+            Class.forName("com.mysql.jdbc.Driver");
             dataBaseConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/magazin?useSSL=false&allowPublicKeyRetrieval=true", "root", "");
         } catch(Exception e){
             e.printStackTrace();
@@ -46,12 +47,12 @@ public class magazinDb {
 //    }
     public static void insertUser(User user){
         try(PreparedStatement statement = getDataBaseConnection().prepareStatement(magazinDbData.insertUser)){
-            statement.setString(2, user.getUsername());
-            statement.setString(5, user.getNume());
-            statement.setString(6, user.getPrenume());
-            statement.setString(4, user.getEmail());
-            statement.setString(3, user.getPassword());
-            statement.setInt(1,user.getId());
+            statement.setString(1, user.getUsername());
+            statement.setString(4, user.getNume());
+            statement.setString(5, user.getPrenume());
+            statement.setString(3, user.getEmail());
+            statement.setString(2, user.getPassword());
+            //statement.setInt(1,user.getId());
             statement.executeUpdate();
 
         }catch(SQLException e){
@@ -79,6 +80,20 @@ public class magazinDb {
         return user;
     }
 
+    public static ArrayList<String> selectProduct(){
+        ArrayList<String> categories = new ArrayList<>();
+        try(PreparedStatement statement =getDataBaseConnection().prepareStatement(magazinDbData.selectProdName)){
+            ResultSet resultSet =statement.executeQuery();
+            while(resultSet.next()){
+                String categoryName = resultSet.getString("numeProdus");
+                categories.add(categoryName);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return categories;
+    }
     public static ArrayList<String> getAllUsernames(){
         try(PreparedStatement statement = getDataBaseConnection().prepareStatement(magazinDbData.selectUsernames)){
             ResultSet resultSet = statement.executeQuery();
@@ -283,6 +298,8 @@ public class magazinDb {
         }
         return null;
     }
+
+
 
 
 }

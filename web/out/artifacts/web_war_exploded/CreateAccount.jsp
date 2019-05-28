@@ -34,7 +34,7 @@
         </div>
 
         <div class="c3">
-            <label for="email">Phone number: </label>
+            <label for="email">Email: </label>
             <input  type="text" placeholder="Enter email" name="email" id = "email">
         </div>
 
@@ -48,9 +48,11 @@
             <input type="password" placeholder="Enter Parola" name="parola" id = "parola" required>
         </div>
 
+        <form action="/register" method="post">
         <div>
             <button class = "btn" type="submit" name="action">Register</button>
         </div>
+        </form>
 
     </div>
 </form>

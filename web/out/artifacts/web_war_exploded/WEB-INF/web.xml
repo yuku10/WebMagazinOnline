@@ -32,24 +32,6 @@
         <url-pattern>/showCategories</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>ShowNamesServlet</servlet-name>
-        <servlet-class>ShowNamesServlet</servlet-class>
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>ShowNamesServlet</servlet-name>
-        <url-pattern>/showNames</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ShowDescriptionsServlet</servlet-name>
-        <servlet-class>ShowDescriptionsServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ShowDescriptionsServlet</servlet-name>
-        <url-pattern>/showDescriptions</url-pattern>
-    </servlet-mapping>
 
 </web-app>

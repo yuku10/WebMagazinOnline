@@ -15,8 +15,8 @@ public class ShowCategoriesServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ArrayList<Product> categories = magazinDb.getAllProductsAllAttributes();
-        req.setAttribute("categories", ShowProductServices.categoryArrayToString(categories));
+        ArrayList<String> categories = magazinDb.selectProduct();
+        req.setAttribute("produse", ShowProductServices.namesArrayToString(categories));
         req.getRequestDispatcher("/Magazin.jsp").forward(req, resp);
 
 

@@ -19,40 +19,20 @@
 <div class>
 </div>
 <br>
-<form action="http://localhost:8090/Magazin/showCategories" method="post">
-    <input type="submit" value="Show categories of products available"/>
+<form action="http://localhost:8080/Magazin/showCategories" method="post">
+    <input type="submit" value="Show products available"/>
 </form>
 
 <div id="result1" class="result">
     <pre>
-        ${requestScope.categories}
+        ${requestScope.produse}
     </pre>
 </div>
 
 <div>
     <div class >
 
-        <form action="http://localhost:8090/Magazin/showNames" method="POST">
-            <input type="submit" value="Show the names of quizzes"/>
-        </form>
 
-        <div id="result2" class="result">
-            <pre>
-                ${requestScope.names}
-            </pre>
-        </div>
-
-        <form action="http://localhost:8090/Magazin/showDescriptions" method="post">
-            <input type="submit" value="Show the description of quizzes"/>
-        </form>
-
-        <div id="result3" class="result">
-            <pre>
-                ${requestScope.descriptions}
-            </pre>
-        </div>
-
-    </div>
 
 
 </div>

@@ -23,7 +23,7 @@ public class HomeServlet extends HttpServlet {
         session.setAttribute("userId", magazinDb.selectUser(username).getId());
 
         if(loginStatus.equals("Te-ai autentificat cu succes"))
-            resp.sendRedirect("http://localhost:8090/MagGood/magazin.jsp");
+            resp.sendRedirect("http://localhost:8080/Magazin.jsp");
         else{
             req.setAttribute("loginStatus", loginStatus);
             req.getRequestDispatcher("/index.jsp").forward(req, resp);

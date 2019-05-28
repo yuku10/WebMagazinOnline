@@ -23,12 +23,12 @@ public  class CreateAccountServlet extends HttpServlet {
         String email = req.getParameter("email");
         String parola = req.getParameter("parola");
         String username = req.getParameter("username");
-        Integer id =req.getIntHeader("id");
-        User user = new User(id,username,parola,email,Nume,Prenume);
+
+        User user = new User(Nume,Prenume,email,parola,username);
         String registerStatus = UI.createAccount(user);
         if(registerStatus.equals("Bravo, ti-ai creat un cont cu succes")) {
             //resp.sendRedirect("http://localhost:8090/MagGood/magazin.jsp");
-            resp.sendRedirect("http://localhost:8080");
+            resp.sendRedirect("http://localhost:8080/Magazin.jsp");
             HttpSession session = req.getSession();
             session.setAttribute("iduser", magazinDb.selectUser(username).getId());
         }
